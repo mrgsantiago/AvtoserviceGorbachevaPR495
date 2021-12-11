@@ -1,0 +1,60 @@
+﻿<Window x:Class="avtoserviceGorbachevaMN.MainW"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:avtoserviceGorbachevaMN"
+        mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
+        Title="MainW" Height="550" Width="800" MinHeight="505" MinWidth="670" FontFamily="Tw Cen MT" Loaded="Window_Loaded">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="60"/>
+            <RowDefinition/>
+            <RowDefinition Height="24"/>
+        </Grid.RowDefinitions>
+        <Border BorderBrush="#6995c2" BorderThickness="0,0,0,1" Grid.ColumnSpan="2">
+            <Grid x:Name="Head">
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="Resources/service_logo.png" Margin="5,0,0,0" Height="{Binding ElementName=Head, Path=ActualHeight}"/>
+                    <Label Content="Avtoservice" VerticalContentAlignment="Center" Foreground="#646464" FontSize="14px" Margin="5,0,0,0"/>
+                </StackPanel>
+                <Label Content="Список услуг" HorizontalAlignment="Center" FontFamily="Calibri" Foreground="#646464" VerticalAlignment="Center" FontSize="20px"/>
+                <Button x:Name="Back" Content="Назад" HorizontalAlignment="Right" Height="25" Width="60" FontSize="12px" Margin="0,0,15,0">
+                    <Button.Resources>
+                        <Style TargetType="Border">
+                            <Setter Property="CornerRadius" Value="3"/>
+                        </Style>
+                    </Button.Resources>
+                </Button>
+            </Grid>
+        </Border>
+
+        <StackPanel Grid.Row="1" Grid.Column="0" VerticalAlignment="Bottom" Orientation="Horizontal" Margin="20,0,0,0">
+            <Button x:Name="BtnBak" Click="BtnBak_Click" Content="Предыдущая страница" FontSize="14px" Height="30" HorizontalAlignment="Left" Background="White"></Button>
+            <Button x:Name="BtnNext" Click="BtnNext_Click" Background="#EAEAEA" Content="Следующая страница" FontSize="14px" Height="30" Margin="5,0,0,0" HorizontalAlignment="Left"></Button>
+            
+        </StackPanel>
+        <StackPanel Grid.Row="1" Grid.Column="1" VerticalAlignment="Bottom" Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,0,10,0">
+            <ComboBox Width="120" HorizontalAlignment="Right" Name="FilterCmb">
+                <ComboBoxItem Content="Длительность"/>
+                <ComboBoxItem Content="Скидка"/>
+            </ComboBox>
+                <ComboBox Width="120" HorizontalAlignment="Right" Name="SortCmb">
+                    <ComboBoxItem Content="менее 1400"/>
+                    <ComboBoxItem Content="1500"/>
+                    <ComboBoxItem Content="более 1500"/>
+                </ComboBox>
+        </StackPanel>
+        <Border BorderBrush="#6995c2" BorderThickness="0,0,0,1" Grid.Row="2" Grid.ColumnSpan="2">
+            <Frame x:Name="MainFrame" Grid.Row="2" Grid.ColumnSpan="2" Content="Frame" Margin="10,10,10,0" NavigationUIVisibility="Hidden"/>
+        </Border>
+        <Label Grid.Row="3" Content="Avtoservice 2021" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Background="#ff9c1a" Foreground="White" Grid.ColumnSpan="2"/>
+    </Grid>
+</Window>
+
